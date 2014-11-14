@@ -7,3 +7,5 @@ Raspberry Pi runs custom build kernel and hosts this application to control a TR
 The Pi also hosts a webapplication in PHP which can be used to access the TRex controller from the outside.
 
 Students need to implement parts of the TRex controller software and build the web application. They also need to build the Linux kernel and rootfs using buildroot.
+
+Comment van Sam
