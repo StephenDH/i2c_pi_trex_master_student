@@ -4,6 +4,8 @@
 namespace TRexLib{
 	MyTRex::MyTRex(I2C* i2c, int i2caddress):TRex(I2C, i2caddress)
     {
+        this->i2c = i2c;
+        this->i2cAddress = i2cAddress;
 
     }
     bool MyTrex::readStatus(StatusDataPacket * status){
@@ -15,7 +17,6 @@ namespace TRexLib{
     	wait(0.1);
     	status=data;
     	return true;
-
     }
     bool MyTrex::writeCommand(CommandDataPacket * command){
     	char buffer[]={command};

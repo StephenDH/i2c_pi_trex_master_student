@@ -1,4 +1,5 @@
 #include "TRex.h"
+#include "MyTRex.h"
 
 #ifndef MY_TRex_HEADER
 #define MY_TRex_HEADER
@@ -21,7 +22,7 @@ namespace TRexLib{
              *
              * @return true if the read action was successful
              */
-            bool readStatus(StatusDataPacket * status) = 0;
+            bool readStatus(StatusDataPacket * status);
 
             /*
              * Write command to the TRex controller.
@@ -30,7 +31,7 @@ namespace TRexLib{
              *
              * @return true if the write action was successful
              */
-            bool writeCommand(CommandDataPacket * command) = 0; 
+            bool writeCommand(CommandDataPacket * command); 
 
         protected:
             /* The bus on which the slave is connected. */
