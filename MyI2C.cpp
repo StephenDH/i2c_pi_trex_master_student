@@ -17,30 +17,30 @@ namespace TRexLib{
      * Also see http://linux.die.net/man/2/read
      */
     ssize_t (* pi_i2c_read)(int, void *, size_t) = read;
-    myI2C(const char* device, int i2caddress):I2C(const char * device, int i2caddress)
+    MyI2C::MyI2C(const char* device, int i2caddress):I2C(device, i2caddress)
     {
     strcpy(this->device,device);
     openBus();
     acquireBus(i2caddress);
     }
 
-    int myI2C::openBus(void)
+    int MyI2C::openBus(void)
     {
     this->handle = open(this->device, O_RDWR);
     return handle;
     }
 
-    int myI2C::acquireBus(int i2caddress)
+    int MyI2C::acquireBus(int i2caddress)
     {
     return ioctl(this->handle,I2C_SLAVE,i2caddress);
     }
 
-    int myI2C::write(int address, char * data, int length)
+    int MyI2C::write(int address, char * data, int length)
     {
     return pi_i2c_write(this->handle,data,length);
     }
 
-    int myI2C::read(int address, char * data, int length)
+    int MyI2C::read(int address, char * data, int length)
     {
     return pi_i2c_read(this->handle,data,length);
     }

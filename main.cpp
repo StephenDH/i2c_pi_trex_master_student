@@ -1,5 +1,5 @@
 #include "MyTRex.h"
-#include "MyStatusDataPacket.h"
+#include "StatusDataPacket.h"
 #include "MyI2C.h"
 #include "wait.h"
 
@@ -20,7 +20,7 @@ int main() {
     MyTRex trex(&i2c, REMOTE_ADDRESS);
 
     // Read the status of the device
-    MyStatusDataPacket status;
+    StatusDataPacket status;
     if (trex.readStatus(&status)) {
         pc.printf("Startbyte: %#x\r\n", status.getStartByte());
         pc.printf("Errorflags: %#x\r\n", status.getErrorFlags());

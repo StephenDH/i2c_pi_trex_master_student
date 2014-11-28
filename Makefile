@@ -1,5 +1,5 @@
 # The compiler
-BINPATH=/home/nico/buildroot/output/host/usr/bin/arm-buildroot-linux-uclibcgnueabi-
+BINPATH=/home/sam/buildroot/output/host/usr/bin/arm-buildroot-linux-uclibcgnueabi-
 CC=$(BINPATH)g++
 
 # Compiler flags
