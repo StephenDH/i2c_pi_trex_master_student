@@ -1,13 +1,17 @@
-#include <String.h>
-
+#include <string.h>
+#include "AcceleroMeter.h"
 #ifndef Json_Class_H
 #define Json_Class_H
-
+namespace TRexLib{
 class Json_class{
 public:
-	String intValue(String* output, String* key, int value );
+	std::string intValue(std::string* output, std::string key, int value );
 
-	String charValue(String* output, String* key, char value );
+	std::string charValue(std::string* output, std::string key, char value );
 
-	String doubleValue(String* output, String* key, double value );
+	std::string doubleValue(std::string* output, std::string key, double value );
+	std::string accelValue(std::string* output,std::string key, AcceleroMeter accel);
+	std::string impValue(std::string* output, std::string key, Impact imp );
+};
 }
+#endif

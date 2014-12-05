@@ -1,5 +1,4 @@
 #include "TRex.h"
-#include "MyTRex.h"
 
 #ifndef MY_TRex_HEADER
 #define MY_TRex_HEADER

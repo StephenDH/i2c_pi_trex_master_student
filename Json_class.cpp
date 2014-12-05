@@ -2,15 +2,21 @@
 
 	namespace TRexLib{
 		
-		String Json_class::intValue(String* output, String* key, int value ){
+		std::string Json_class::intValue(std::string* output, std::string key, int value ){
 			output += "\"" + key + "\": " + value;
 		}
 
-		String Json_class::charValue(String* output, String* key, char value ){
+		std::string Json_class::charValue(std::string* output, std::string key, char value ){
 			output += "\"" + key + "\": " + value;
 		}
 
-		String Json_class::doubleValue(String* output, String* key, double value ){
+		std::string Json_class::doubleValue(std::string* output, std::string key, double value ){
 			output += "\"" + key + "\": " + value;
+		}
+		std::string Json_class::accelValue(std::string* output, std::string key, AcceleroMeter accel ){
+			output += "\"" + key + "\": [" + accel.x+","+accel.y+","+accel.z+"],";
+		}
+		std::string Json_class::impValue(std::string* output, std::string key, Impact imp ){
+			output += "\"" + key + "\": [" + imp.x+","+imp.y+","+imp.z+"],";
 		}
 	}

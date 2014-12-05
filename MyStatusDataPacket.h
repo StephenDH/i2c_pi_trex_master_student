@@ -1,6 +1,8 @@
 #include "DataPacket.h"
 #include "Side.h"
 #include "AcceleroMeter.h"
+#include "Json_class.h"
+#include "StatusDataPacket.h"
 #ifndef MY_StatusDataPacket_HEADER
 #define MY_StatusDataPacket_HEADER
 
