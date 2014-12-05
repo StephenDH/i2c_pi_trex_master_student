@@ -1,4 +1,4 @@
-#include "MyTRexl.h"
+#include "MyTRex.h"
 #include "MyStatusDataPacket.h"
 #include "MyI2C.h"
 #include "wait.h"

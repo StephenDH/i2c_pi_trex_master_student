@@ -35,20 +35,21 @@ namespace TRexLib{
 	}
 	std::string MyStatusDataPacket::toJSON(void){
 		Json_class json_functie;
-		std::string* json="{\"device_path\": \"/dev/i2c-1\", \"i2c_address\": 7,";
-		json_functie->doubleValue(&json,"battery_voltage",this->getBatteryVoltage());
+		std::string json="{\"device_path\": \"/dev/i2c-1\", \"i2c_address\": 7,";
+		json_functie.doubleValue(&json,"battery_voltage",this->getBatteryVoltage());
 		json=+",";
 		json=+" \"motor_current\": {";
-		json_functie->doubleValue(&json,"left",this->getBatteryVoltage(left));
+		json_functie.doubleValue(&json,"left",this->getMotorCurrent(LEFT));
 		json=+",";
-		json_functie->doubleValue(&json,"right",this->getBatteryVoltage(right));
+		json_functie.doubleValue(&json,"right",this->getMotorCurrent(RIGHT));
 		json=+"},";
 		json=+" \"encoder_count\": {";
-		json_functie->doubleValue(&json,"left",this->getBatteryVoltage(left));
+		json_functie.doubleValue(&json,"left",this->getEncoderCount(LEFT));
 		json=+",";
-		json_functie->doubleValue(&json,"right",this->getBatteryVoltage(right));
+		json_functie.doubleValue(&json,"right",this->getEncoderCount(RIGHT));
 		json=+"},";
-		json_functie->accelValue(&json,"accelero_meter",this->getAcceleroMeter());
-		json_functie->accelValue(&json,"impact",this->getImpact());
+		json_functie.accelValue(&json,"accelero_meter",this->getAcceleroMeter());
+		json_functie.impValue(&json,"impact",this->getImpact());
 
 	}
+}
