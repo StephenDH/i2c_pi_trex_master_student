@@ -1,14 +1,14 @@
 # The compiler
 BINPATH=/home/sam/buildroot/output/host/usr/bin/arm-buildroot-linux-uclibcgnueabi-
-CC=$(BINPATH)g++
+CC=g++
 
 # Compiler flags
 CFLAGS  = -Wall
   #  -Wall turns on most, but not all, compiler warnings
 
 
-all: clean I2C.o MyI2C.o wait.o Serial.o StatusDataPacket.o MyStatusDataPacket.o TRex.o MyTRex.o main.o 
-	$(CC) $(CFLAGS) I2C.o MyI2C.o wait.o Serial.o StatusDataPacket.o MyStatusDataPacket.o TRex.o MyTRex.o main.o -o i2c_pi_trex_master
+all: clean I2C.o MyI2C.o wait.o Serial.o StatusDataPacket.o MyStatusDataPacket.o TRex.o Json_class.o MyTRex.o main.o 
+	$(CC) $(CFLAGS) I2C.o MyI2C.o wait.o Serial.o StatusDataPacket.o MyStatusDataPacket.o Json_class.o TRex.o MyTRex.o main.o -o i2c_pi_trex_master
 
 I2C.o: I2C.cpp
 	$(CC) -c $(CFLAGS) I2C.cpp
@@ -33,6 +33,9 @@ TRex.o: TRex.cpp
 
 MyTRex.o: MyTRex.cpp
 	$(CC) -c $(CFLAGS) MyTRex.cpp
+
+Json_class.o: Json_class.cpp
+	$(CC) -c $(CFLAGS) Json_class.cpp
 
 main.o: main.cpp
 	$(CC) -c $(CFLAGS) main.cpp

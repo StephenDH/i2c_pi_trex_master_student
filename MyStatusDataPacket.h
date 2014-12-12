@@ -3,6 +3,7 @@
 #include "AcceleroMeter.h"
 #include "Json_class.h"
 #include "StatusDataPacket.h"
+#include <string>
 #ifndef MY_StatusDataPacket_HEADER
 #define MY_StatusDataPacket_HEADER
 

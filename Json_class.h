@@ -1,4 +1,5 @@
-#include <string.h>
+#include <string>
+#include <sstream>
 #include "AcceleroMeter.h"
 #ifndef Json_Class_H
 #define Json_Class_H
