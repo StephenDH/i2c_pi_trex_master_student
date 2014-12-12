@@ -11,17 +11,20 @@ namespace TRexLib{
 
 	}
 	void MyStatusDataPacket::fromTRex(char * data){
-        for (int i = 0; i < StatusDataPacket::SIZE_STATUS_DATA_PACKET; i++) {
-            printf("%d ", data[i]);
-        }
-        printf("%d ", (data[STATUS_BATTERY_MSB] + data[STATUS_BATTERY_LSB]));
 		this->setStartByte(data[STATUS_START]);
+		// Set the start byte from the data*.
 		this->setErrorFlags(data[STATUS_ERROR]);
+		// Set the error flag from the data*.
 		this->setBatteryVoltage(((data[STATUS_BATTERY_MSB] << 8) + data[STATUS_BATTERY_LSB])/100.0);
+		// Set the battery flag from the data*.
 		this->setMotorCurrent(LEFT,((data[STATUS_LEFT_MOTOR_CURRENT_MSB]<<8)+data[STATUS_LEFT_MOTOR_CURRENT_LSB])/1000.0);
+		// Set the left motor current from the data*.
 		this->setMotorCurrent(RIGHT,((data[STATUS_RIGHT_MOTOR_CURRENT_MSB]<<8)+data[STATUS_RIGHT_MOTOR_CURRENT_LSB])/1000.0);
+		// Set the right motor current from the data*.
 		this->setEncoderCount(LEFT,((data[STATUS_LEFT_ENCODER_COUNT_MSB]<<8)+data[STATUS_LEFT_ENCODER_COUNT_LSB]));
+		// Set the left encoder count from the data*.
 		this->setEncoderCount(RIGHT,((data[STATUS_RIGHT_MOTOR_CURRENT_MSB]<<8)+data[STATUS_RIGHT_MOTOR_CURRENT_LSB]));
+		// Set the right encoder count from the data*.
 
 		AcceleroMeter accelero;
 		accelero.x=((data[STATUS_ACCELEROMETER_X_MSB]<<8)+data[STATUS_ACCELEROMETER_X_LSB]);
