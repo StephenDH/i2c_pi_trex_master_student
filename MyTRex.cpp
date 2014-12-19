@@ -14,9 +14,6 @@ namespace TRexLib{
     	char data[StatusDataPacket::SIZE_STATUS_DATA_PACKET];
     	i2c->read(i2cAddress,data,StatusDataPacket::SIZE_STATUS_DATA_PACKET);
     	//wait(0.1);
-        for (int i = 0; i < StatusDataPacket::SIZE_STATUS_DATA_PACKET; i++) {
-            printf("%d ", data[i]);
-        }
         status->fromTRex(data);
     	return true;
     }

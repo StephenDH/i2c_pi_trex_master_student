@@ -2,6 +2,9 @@
 #include "MyStatusDataPacket.h"
 #include "MyI2C.h"
 #include "wait.h"
+#include <iostream>
+#include <cstring>
+#include <string>
 
 using namespace TRexLib;
 
@@ -36,7 +39,11 @@ int main() {
     } else {
         pc.printf("Could not read status\r\n");
     }
-    
+    std::string test;
+    test=status.toJSON();
+    char *cstr = new char[test.length() + 1];
+    strcpy(cstr, test.c_str());
+    pc.printf("json %s \r\n",cstr);
     pc.printf("Done\r\n");
 
     return 0;
